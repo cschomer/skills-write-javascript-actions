@@ -11,9 +11,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: "16"
-      - run: npm install
+      - name: Install dependencies
+        working-directory: .github/actions/joke-action
+        run: npm install
       - name: ha-ha
         uses: ./.github/actions/joke-action
